@@ -62,35 +62,7 @@ resource "azurerm_linux_function_app" "example" {
     }
   }
 }
-# resource "azurerm_function_app_function" "example" {
-#   name            = "${module.naming.function_app.name_unique}-function"
-#   function_app_id = azurerm_linux_function_app.example.id
-#   language        = "Python"
-#   test_data = jsonencode({
-#     "name" = "Azure"
-#   })
-#   config_json = jsonencode({
-#     "scriptFile": "__init__.py",
-#     "bindings" = [
-#       {
-#         "authLevel" = "function"
-#         "direction" = "in"
-#         "name" = "req"
-#         "methods" = [
-#           "get",
-#           "post",
-#         ]
-#         "name" = "req"
-#         "type" = "httpTrigger"
-#       },
-#       {
-#         "direction" = "out"
-#         "name"      = "$return"
-#         "type"      = "http"
-#       },
-#     ]
-#   })
-# }
+
 resource "azurerm_function_app_function" "example" {
   name            = "${module.naming.function_app.name_unique}-function"
   function_app_id = azurerm_linux_function_app.example.id
